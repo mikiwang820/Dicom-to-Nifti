@@ -10,9 +10,11 @@ Created on Wed Oct 28 19:06:29 2020
 import os
 import SimpleITK as sitk
 
-#route = '/Volumes/Transcend/CT'
+#route = your dicom folder
 
 route = '/Volumes/dataBackup/HCC/ntuh/non_labeled/CT_orginal_six_examples'
+
+#save_route = the folder where you want to save your output files
 
 save_route = '/Volumes/dataBackup/HCC/ntuh/non_labeled' #/CT_3D_10282020
 
@@ -155,42 +157,3 @@ for i4 in range(len(dir_)):
                         print(f'An Error occurred: {e}')
                 
                     slice_list = []
-
-            
-      
-            
-            
-    
-            
-                
-
-            
-            
-        
-
-'''
-    
-        try:
-            # 設定 DICOM 影像序列檔案名稱
-            reader.SetFileNames(dicom_filenames)
-        
-            # 載入後設資料
-            reader.MetaDataDictionaryArrayUpdateOn()
-         
-            # 載入私有後設資料
-            reader.LoadPrivateTagsOn()
-    
-            image = reader.Execute()
-          
-            size = image.GetSize()
-                
-            print("Image size: {} x {} x {}".format(size[0], size[1], size[2]))
-                            
-            outFile = os.path.join(save_route, series_ids[i] +  ".nii.gz") # xxx.nii.gz
-                    
-            sitk.WriteImage(image, outFile)
-            
-        except Exception as e: 
-            
-            print(f'An Error occurred: {e}')
-'''
